@@ -14,6 +14,7 @@ library(zoo)
 library(plotly)
 library(tidyverse)
 library(RColorBrewer)
+options(stringsAsFactors = F)
 
 
 
