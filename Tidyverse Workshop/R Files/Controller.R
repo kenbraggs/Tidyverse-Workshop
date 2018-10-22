@@ -66,7 +66,7 @@ city = crashes %>%
 #calculate severity of car accidents by weekday
 weekday.severity = crashes %>%
   group_by(DAY_IN_WEEK_CD)%>%
-  summarise(Severity = mean(SEVERITY_BY_TYPE_CD))%>%
+  summarise(Severity = round(mean(SEVERITY_BY_TYPE_CD), 2))%>%
   rename(Day = DAY_IN_WEEK_CD)%>%
   mutate(Severity = factor(Severity))
 
@@ -88,7 +88,7 @@ ggplot()+
 
 weekday.severity %>%
   ggplot()+
-  geom_bar(aes(x = Day, y = Severity, fill = Severity), stat = "identity")+
+  geom_bar(aes(x = Day, y = Severity, fill = Day), stat = "identity")+
   scale_fill_brewer(palette = "Paired")+
   theme_bw()+
   labs(y = "Severity of Crashes", title = "Severity of Crashes by Weekday")+
