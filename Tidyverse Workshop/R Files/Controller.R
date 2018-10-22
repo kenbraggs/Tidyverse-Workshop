@@ -25,7 +25,7 @@ options(stringsAsFactors = F)
 wd = getwd()
 
 #Concatenates wd and file path. done to ensure repeatability
-filename = paste0(wd, "/Data/Franklin County Crashes 2015-2017.csv")
+filename = paste0(wd, "/Tidyverse Workshop/Data/Franklin County Crashes 2015-2017.csv")
 
 #reads in Franklin County Crash Data set.
 crashes = read.csv(filename)
@@ -66,8 +66,8 @@ city = crashes %>%
 #calculate severity of car accidents by weekday
 weekday.severity = crashes %>%
   group_by(DAY_IN_WEEK_CD)%>%
-  summarise(mean(SEVERITY_BY_TYPE_CD))%>%
-  rename(Day = DAY_IN_WEEK_CD, Severity = `mean(SEVERITY_BY_TYPE_CD)`)%>%
+  summarise(Severity = mean(SEVERITY_BY_TYPE_CD))%>%
+  rename(Day = DAY_IN_WEEK_CD)%>%
   mutate(Severity = factor(Severity))
 
 
