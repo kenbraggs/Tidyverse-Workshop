@@ -80,8 +80,8 @@ weekday.severity = crashes %>%
 #calculate severity of car accidents by month
 month.severity = crashes %>%
   group_by(Month_Year)%>%
-  summarise(mean(SEVERITY_BY_TYPE_CD))%>%
-  rename(Month = Month_Year, Severity = `mean(SEVERITY_BY_TYPE_CD)`)%>%
+  summarise(Severity = round(mean(SEVERITY_BY_TYPE_CD), 2))%>%
+  rename(Month = Month_Year)%>%
   mutate(Severity = factor(Severity))
 
 #counts the number of car crashes per month
