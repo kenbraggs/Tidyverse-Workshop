@@ -25,7 +25,7 @@ options(stringsAsFactors = F)
 wd = getwd()
 
 #Concatenates wd and file path. done to ensure repeatability
-filename = paste0(wd, "/Tidyverse Workshop/Data/Franklin County Crashes 2015-2017.csv")
+filename = paste0(wd, "/Data/Franklin County Crashes 2015-2017.csv")
 
 #reads in Franklin County Crash Data set.
 crashes = read_csv(filename)
